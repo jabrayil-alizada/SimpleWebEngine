@@ -1,0 +1,51 @@
+﻿*{
+	margin:0;
+	padding: 0;
+	text-decoration: none;
+}
+
+
+@font-face {
+    font-family: 'Raleway'; /* Гарнитура шрифта */
+    src: url(fonts/Raleway.ttf); /* Путь к файлу со шрифтом */
+}
+
+body{
+	background: #f1f2f6;
+}
+
+.main {
+	margin: 0 auto;
+	width: 1000px;
+}
+
+.panelBg {
+	width: 740px;
+	height: 360px;
+	background: #fff;
+	border: 1px solid #e5e7ec;
+	margin: 200px auto;
+}
+
+.panelBg img{
+	margin: 81px 0px 0px 110px;
+}
+
+.auth {
+	width: 254px;
+	float: right;
+	margin: 0px 15px 0px 0px;
+}
+
+.auth h3 {
+	font-size: 18px;
+	margin-top: 40px;
+	font-family: 'PT Sans', sans-serif;
+	color: #656d78;
+}
+
+.auth p{
+	margin-top: 5px;
+	font-family: 'Raleway';
+	font-size: 14px;
+}
