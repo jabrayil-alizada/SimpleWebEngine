@@ -1,23 +1,19 @@
 ﻿<?php
 
 $name = $_POST['name'];
+$pass = $_POST['pass'];
+$email = $_POST['email'];
 
 
-$servername = "localhost";
-$username = "root";
-$password = "";
-$dbname = "test";
+$catName = $_POST['catName'];
 
-//Create connection
-$conn = new mysqli($servername,$username,$password,$dbname);
+require_once('connect.php');
 
-//Check connection
-if($conn->connect_error){
-	die("Connection failed :".$conn->connect_error);
-}
+// $sql = "INSERT INTO users (name,pass,email)
+// 		VALUES ('".$name."','".$pass."','".$email."')";
 
-$sql = "INSERT INTO Users (name)
-		VALUES ('".$name."')";
+$sql = "INSERT INTO news_cat (cat_name)
+		VALUES ('".$catName."')";	
 
 if($conn->query($sql) === TRUE){
 	echo "New record created successfully";
