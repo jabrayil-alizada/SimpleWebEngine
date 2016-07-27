@@ -1,18 +1,20 @@
 ﻿<fieldset>
 	<legend>Регистрация</legend>
 
-	<form method="POST" action="check.php">
+	<form method="POST" action="check.php" enctype="multipart/form-data">
 	<span>Имя</span>
-	<input type="text" name="name">
+	<input type="text" name="name" required>
 	<span>Пароль</span>
-	<input type="password" name="pass">
+	<input type="password" name="pass" required>
 	<span>E-mail</span>
-	<input type="text" name="email">
-	<select>
+	<input type="text" name="email" required>
+	<span>Аватарка</span>
+	<input type="file" name="uploadfile">
+	<!-- <select name="cat_name">
 		<?php
 		
 		require_once('connect.php');
-
+		//getting all categories from db
 		$sql = "SELECT * FROM `news_cat`";	
 
 		$result = $conn->query($sql);
@@ -20,7 +22,7 @@
 		if ($result->num_rows > 0) {
 		    // output data of each row
 		    while($row = $result->fetch_assoc()) {
-		        echo "<option>".$row["cat_name"]."</option>";
+		        echo "<option value=".$row['cat_id'].">".$row["cat_name"]."</option>";
 		    }
 		} else {
 		    echo "0 results";
@@ -29,9 +31,9 @@
 		$conn->close();
 
 		?>
-	</select>
+	</select> -->
 
-	<button>Регистрация</button>
+	<br><br><button>Регистрация</button>
 	</form>
 
 	<!-- <legend>Категорию</legend>
