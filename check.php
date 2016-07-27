@@ -13,11 +13,21 @@ require_once('connect.php');
 
 // Каталог, в который мы будем принимать файл:
 $uploaddir = './news_img/';
-$uploadfile = $uploaddir.basename($_FILES['uploadfile']['name']);
+$extension = ".".basename($_FILES['uploadfile']['type']);
+
+//Создаем уникальное имя для файла и проверяем не существует ли такого
+function get_random_file_name($uploaddir, $extension){
+	do {
+    	$file_name = md5(microtime() . rand(0, 9999));
+    	$uploadfile = $uploaddir.$file_name.$extension;
+	} while (file_exists($uploadfile));
+ 
+	return $uploadfile;
+}
 
 
 // Копируем файл из каталога для временного хранения файлов:
-if (copy($_FILES['uploadfile']['tmp_name'], $uploadfile))
+if (copy($_FILES['uploadfile']['tmp_name'], get_random_file_name($uploaddir,$extension)))
 {
 echo "<h3>Файл успешно загружен на сервер</h3>";
 }
