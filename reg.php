@@ -8,8 +8,13 @@
 	<input type="password" name="pass" required>
 	<span>E-mail</span>
 	<input type="text" name="email" required>
-	<span>Аватарка</span>
-	<input type="file" name="uploadfile">
+
+
+	<!-- <span>Аватарка</span>
+	<input type="file" name="uploadfile"> -->
+
+
+
 	<!-- <select name="cat_name">
 		<?php
 		

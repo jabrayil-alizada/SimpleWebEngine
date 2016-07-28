@@ -1,52 +1,41 @@
 ﻿<?php
 
-$name = $_POST['name'];
-$pass = $_POST['pass'];
-$email = $_POST['email'];
+if (isset($_POST['name'])) { $name = $_POST['name']; if ($name == '') { unset($name);} } //заносим введенный пользователем имя в переменную $name, если он пустой, то уничтожаем переменную
+if (isset($_POST['pass'])) { $pass = $_POST['pass']; if ($pass == '') { unset($pass);} } //заносим введенный пользователем пароль в переменную $password, если он пустой, то уничтожаем переменную
+if (isset($_POST['email'])) { $email = $_POST['email']; if ($email = '') { unset($email); }} //заносим введенный пользователем email в переменную $email, если он пустой, то уничтожаем переменную
+
+//если имя и пароль введены, то обрабатываем их, чтобы теги и скрипты не работали, мало ли что люди могут ввести
+$name = stripslashes($name);
+$name = htmlspecialchars($name);
+$pass = stripslashes($pass);
+$pass = htmlspecialchars($pass);
+
+//удаляем лишние пробелы
+$name = trim($name);
+$pass = trim($pass);
+
+//Группа в которую добавляются зарегистрированные
 $group_id = 2;
 
-
+// Подключаемся к базе
 require_once('connect.php');
 
-// $sql = "INSERT INTO users (name,pass,email)
-// 		VALUES ('".$name."','".$pass."','".$email."')";
-
-// Каталог, в который мы будем принимать файл:
-$uploaddir = './news_img/';
-$extension = ".".basename($_FILES['uploadfile']['type']);
-
-//Создаем уникальное имя для файла и проверяем не существует ли такого
-function get_random_file_name($uploaddir, $extension){
-	do {
-    	$file_name = md5(microtime() . rand(0, 9999));
-    	$uploadfile = $uploaddir.$file_name.$extension;
-	} while (file_exists($uploadfile));
- 
-	return $uploadfile;
+// Проверяем существует ли такой пользователь
+$sql = "SELECT user_id FROM users WHERE name='".$name."'";
+$result = $conn->query($sql);
+if ($result->num_rows > 0) {
+	// output data of each row
+	exit ("Извините, введённый вами логин уже зарегистрирован. Введите другой логин.");
 }
 
-
-// Копируем файл из каталога для временного хранения файлов:
-if (copy($_FILES['uploadfile']['tmp_name'], get_random_file_name($uploaddir,$extension)))
-{
-echo "<h3>Файл успешно загружен на сервер</h3>";
-}
-else { echo "<h3>Ошибка! Не удалось загрузить файл на сервер!</h3>"; exit; }
-
-// Выводим информацию о загруженном файле:
-echo "<h3>Информация о загруженном на сервер файле: </h3>";
-echo "<p><b>Оригинальное имя загруженного файла: ".$_FILES['uploadfile']['name']."</b></p>";
-echo "<p><b>Mime-тип загруженного файла: ".$_FILES['uploadfile']['type']."</b></p>";
-echo "<p><b>Размер загруженного файла в байтах: ".$_FILES['uploadfile']['size']."</b></p>";
-echo "<p><b>Временное имя файла: ".$_FILES['uploadfile']['tmp_name']."</b></p>";
-
-$sql = "INSERT INTO users (name,pass,email,group_id,avatar)
-		VALUES ('".$name."','".$pass."','".$email."',2,'".$uploadfile."')";	
+// Если такого пользователя нет то добавляем
+$sql = "INSERT INTO users (name,pass,email,group_id)
+		VALUES ('".$name."','".$pass."','".$email."',2)";	
 
 if($conn->query($sql) === TRUE){
-	echo "New record created successfully";
+	echo "Вы успешно зарегистрированы! Теперь вы можете зайти на сайт. <a href='index.php'>Главная страница</a>";
 } else {
-	echo "Error: ".$sql."<br>".$conn->error;
+	echo "Ошибка! Вы не зарегистрированы: ".$sql."<br>".$conn->error;
 }
 
 $conn->close();
