@@ -1,7 +1,7 @@
 <?php
 
 // Каталог, в который мы будем принимать файл:
-$uploaddir = './news_img/';
+$uploaddir = './user_avatars/';
 $extension = ".".basename($_FILES['uploadfile']['type']);
 
 //Создаем уникальное имя для файла и проверяем не существует ли такого

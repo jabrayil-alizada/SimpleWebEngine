@@ -1,4 +1,11 @@
-﻿<fieldset>
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Registration</title>
+	<meta charset="utf-8">
+</head>
+<body>
+<fieldset>
 	<legend>Регистрация</legend>
 
 	<form method="POST" action="check.php" enctype="multipart/form-data">
@@ -50,3 +57,5 @@
 	<button>Добавить категорию</button>
 	</form> -->
 </fieldset>
+</body>
+</html>
