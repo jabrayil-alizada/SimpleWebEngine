@@ -29,8 +29,8 @@ if ($result->num_rows > 0) {
 }
 
 // Если такого пользователя нет то добавляем
-$sql = "INSERT INTO users (name,pass,email,group_id)
-		VALUES ('".$name."','".$pass."','".$email."',2)";	
+$sql = "INSERT INTO users (name,pass,email,group_id,avatar)
+		VALUES ('".$name."','".$pass."','".$email."',2,'./user_avatars/default.jpg')";	
 
 if($conn->query($sql) === TRUE){
 	echo "Вы успешно зарегистрированы! Теперь вы можете зайти на сайт. <a href='index.php'>Главная страница</a>";
