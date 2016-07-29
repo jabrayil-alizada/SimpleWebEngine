@@ -5,10 +5,9 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Tvoyazona.ru - Добро пожаловать на наш развлекательный портал!</title>
-	<meta charset="utf-8">
-	<link rel="stylesheet" type="text/css" href="css/index.css">
-	<link href='https://fonts.googleapis.com/css?family=PT+Sans&subset=cyrillic,latin' rel='stylesheet' type='text/css'>
+	<?php 
+		require_once("settings.php");
+	?>
 </head>
 <body>
 <div class="main">
@@ -19,13 +18,13 @@
 		</ul>
 		<?php
 			if(!empty($_SESSION['name'])){
-				echo "<a href='#' class='auth'>Выйти</a>
+				echo "<a href='/exit.php' class='auth'>Выйти</a>
 					  <a href='/user.php' class='auth'> <span style='color:red'>".$_SESSION['name']."</span> </a>";
 			}
 			else
 			{
-				echo "<a href='#' class='auth'>Регистрация</a>
-					 <a href='/auth.php' class='auth'>Авторизация</a>";
+				echo "<a href='/reg.php' class='auth'>Регистрация</a>
+					 <a href='/enter.php' class='auth'>Авторизация</a>";
 			}
 		?>
 	</header>

@@ -6,8 +6,9 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title> Авторизация на сайте</title>
-	<meta charset="utf-8">
+	<?php
+        require_once('settings.php');
+    ?>
 </head>
 <body>
 
