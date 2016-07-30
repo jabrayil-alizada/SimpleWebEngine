@@ -11,8 +11,8 @@
 	?>
 </head>
 <body>
-<section class="main">
-	<div class="user_info content_bg">
+
+	<section class="user_info content_bg">
 		<?php
 
 		require_once('connect.php');
@@ -44,7 +44,7 @@
 							<div class='user_news_block'> НОВОСТИ </div>
 							<span class='user_news_block_title'></span>
 						     <ul class='user_news_ul'>
-						     	<li><a href='#'>ДОБАВИТЬ</a></li>
+						     	<li><a href='/add_news.php'>ДОБАВИТЬ</a></li>
 						     	<li><a href='#'>МОИ НОВОСТИ</a></li>
 						     	<li><a href='#'>РЕДАКТИРОВАТЬ</a></li>
 						     </ul>
@@ -66,7 +66,7 @@
 		}
 
 		?>
-	</div>
-</section>
+	</section>
+
 </body>
 </html>
