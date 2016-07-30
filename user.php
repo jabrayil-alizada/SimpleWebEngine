@@ -35,20 +35,36 @@
 				echo "<li><span class='user_fields'>Группа</span> <span class='user_data'>".$row['group_name']."</span></li></ul>";
 				echo "<img class='user_ava' src='".$row['avatar']."' alt = 'Аватарка пользователя ".$row['name']."'>";
 
-				echo "<div class='user_news_bg'>
-					     <ul class='user_news_ul'>
-					     	<li><a href='#'>ДОБАВИТЬ НОВОСТЬ</a></li>
-					     	<li><a href='#'>МОИ НОВОСТИ</a></li>
-					     </ul>
-					  </div>
+				if($row['block'] == 1){
+					echo "<div class='user_blocked'> ЗАБЛОКИРОВАН </div>";
+				}
+				else 
+				{
+					echo "<div class='user_news_bg'>
+							<div class='user_news_block'> НОВОСТИ </div>
+							<span class='user_news_block_title'></span>
+						     <ul class='user_news_ul'>
+						     	<li><a href='#'>ДОБАВИТЬ</a></li>
+						     	<li><a href='#'>МОИ НОВОСТИ</a></li>
+						     	<li><a href='#'>РЕДАКТИРОВАТЬ</a></li>
+						     </ul>
 
-					 <div class='clr'></div>";
+						    <div class='clr'></div>
+
+							<div class='user_userediting_block'> ПОЛЬЗОВАТЕЛИ </div>
+							<span class='user_news_block_title'></span>
+						     <ul class='user_news_ul'>
+						     	<li><a href='#'>ДОБАВИТЬ</a></li>
+						     	<li><a href='#'>РЕДАКТИРОВАТЬ</a></li>
+						     </ul>
+						  </div>
+
+						 <div class='clr'></div>";
+				}
 		} else {
-			echo "0 results";
+			echo "<div class='user_must_auth'>Для получения доступа к панели пользователя, пожалуйста авторизируйтесь.</div>";
 		}
 
-
-		echo "Заблокирован : ".$row['block'];
 		?>
 	</div>
 </section>

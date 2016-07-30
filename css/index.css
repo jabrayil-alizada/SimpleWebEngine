@@ -82,7 +82,7 @@ header ul li a:last-child{
 
 .user_info {
 	width: 780px;
-	height: 250px;
+	height: 290px;
 	margin:20px auto;
 }
 
@@ -97,7 +97,7 @@ header ul li a:last-child{
     margin-bottom: 5px;
 }
 
-.user_fields,.user_news_ul a {
+.user_fields,.user_news_ul a , .user_news_block , .user_userediting_block{
 	width: 100px;
 	height: 30px;
 	font-family: 'Open sans bold';
@@ -129,14 +129,11 @@ header ul li a:last-child{
 
 .user_news_bg {
 	width: 240px;
-	height: 248px;
-	background: #f1f2f6;
 	margin-left: 20px;
 	float: left;
 }
 
 .user_news_ul {
-	margin-top: 20px;
 	margin-left: 20px;
 }
 
@@ -145,4 +142,54 @@ header ul li a:last-child{
 	height: 30px;
 	background: #1dafac;
 	margin-bottom: 5px;
+	transition: background 0.5s ease;;
+}
+
+.user_news_ul a:hover {
+	background: #128b86;
+	transition: background 0.5s ease;;
+}
+
+.user_news_block ,.user_userediting_block {
+	height: 25px;
+	margin: 20px auto 0px auto;
+	width: 100px;
+	float: none;
+}
+
+.user_userediting_block {
+	width: 140px;
+	margin: 20px auto 0px auto;
+}
+
+.user_news_block_title {
+	width: 200px;
+	height: 5px;
+	display: block;
+	margin-left: 20px;
+	background: #8cc152;
+}
+
+.user_blocked {
+	background: #d01111;
+	width: 480px;
+	height: 70px;
+	text-align: center;
+	padding: 6px;
+	font-size: 50px;
+	color: white;
+	font-family: 'raleway';
+	margin-left: 20px;
+    margin-top: 150px;
+    position: absolute;
+}
+
+.user_must_auth {
+	background: #d01111;
+	text-align: center;
+	padding: 6px;
+	font-size: 20px;
+	color: white;
+	font-family: 'raleway';
+	margin:120px 20px 0px 20px;
 }
