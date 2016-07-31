@@ -10,15 +10,24 @@
 	?>
 </head>
 <body>
-<section class="main content_bg">
-	<form action="add_news.php" method="POST" enctype="multipart/form-data">
-		<label>Заголовок поста</label>
-		<input type="text" name="news_title" required>
-		<label>Текст</label>
-		<textarea name="news_text" required></textarea> 
+<section class="main content_bg" style="margin-top:20px; padding-bottom:20px;">
+	<h2 class="news_title"> Добавить новость</h2>
 
-		<input type="submit" name="submit" value="Добавить новость">
-	</form>
+
+	<form action="add_news_handler.php" method="POST" enctype="multipart/form-data">
+		<ul class='user_addnews_ul'>
+			<li><span class='user_fields add_news_user_fields'>ЗАГОЛОВОК</span> <input class='user_data add_news_user_data' style="padding-top:0;" type="text" name="news_title" placeholder="Заголовок" required></li>
+			<li><span class='user_fields add_news_user_fields'>ТЕКСТ</span> <textarea class='user_data add_news_user_data' name="news_text" placeholder="Заполни меня полностью!" required></textarea> </li>
+			<li><span class='user_fields add_news_user_fields'>ИЗОБРАЖЕНИЕ</span> <input class='user_data add_news_user_data' style="padding-top:2px;" type="file" name="uploadfile"></li>
+		</ul>
+
+		<div class="clr"></div>
+
+		<input type="submit" name="submit" value="ОТПРАВИТЬ">
+
+		<div class="clr"></div>
+
+	</form>	
 </section>
 </body>
 </html>

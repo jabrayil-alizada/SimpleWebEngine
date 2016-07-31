@@ -80,6 +80,8 @@ header ul li a:last-child{
 	margin-top: 4px;
 }
 
+/* user.php styles */
+
 .user_info {
 	width: 780px;
 	height: 290px;
@@ -97,7 +99,7 @@ header ul li a:last-child{
     margin-bottom: 5px;
 }
 
-.user_fields,.user_news_ul a , .user_news_block , .user_userediting_block{
+.user_fields,.user_news_ul a , .user_news_block , .user_userediting_block , input[type=submit]{
 	width: 100px;
 	height: 30px;
 	font-family: 'Open sans bold';
@@ -193,3 +195,64 @@ header ul li a:last-child{
 	font-family: 'raleway';
 	margin:120px 20px 0px 20px;
 }
+
+/* user.php styles */
+
+/* Add_news.php styles */
+
+.news_title {
+	font-family: 'raleway';
+	font-size: 16px;
+	color: #656d78;
+	margin-top: 10px;
+	margin-left: 20px;
+}
+
+.news_title:after {
+	content: " ";
+	width: 960px;
+	height: 5px;
+	margin-top: 5px;
+	display: block;
+	background: #8cc152;
+}
+
+.user_addnews_ul {
+	margin:10px 0px 0px 20px;
+	width: 480px;
+}
+
+.user_addnews_ul li {
+	float: left;
+    margin-bottom: 5px;
+}
+
+.user_addnews_ul li:last-child {
+	margin-top: 34px;
+}
+
+.add_news_user_fields {
+	width: 150px;
+}
+
+.add_news_user_data {
+	width: 330px;
+}
+
+.user_addnews_ul textarea {
+	min-height: 150px;
+}
+
+input[type=submit] {
+	width: 150px;
+	border: none;
+	background: #1dafac;
+	margin-top: 15px;
+	margin-left: 350px;
+}
+
+input[type=submit]:hover {
+	cursor: pointer;
+}
+
+/* Add_news.php styles */
