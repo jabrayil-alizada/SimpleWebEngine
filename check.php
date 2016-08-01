@@ -1,8 +1,20 @@
 <?php
+    session_start();//  вся процедура работает на сессиях. Именно в ней хранятся данные  пользователя, пока он находится на сайте. Очень важно запустить их в  самом начале странички!!!
+?>
+
+<!DOCTYPE html>
+<html>
+<head>
+	<?php
+		require_once('settings.php');
+	?>
+</head>
+<body>
+<?php
 
 if (isset($_POST['name'])) { $name = $_POST['name']; if ($name == '') { unset($name);} } //заносим введенный пользователем имя в переменную $name, если он пустой, то уничтожаем переменную
 if (isset($_POST['pass'])) { $pass = $_POST['pass']; if ($pass == '') { unset($pass);} } //заносим введенный пользователем пароль в переменную $password, если он пустой, то уничтожаем переменную
-if (isset($_POST['email'])) { $email = $_POST['email']; if ($email = '') { unset($email); }} //заносим введенный пользователем email в переменную $email, если он пустой, то уничтожаем переменную
+if (isset($_POST['email'])) { $email = $_POST['email']; if ($email == '') { unset($email); }} //заносим введенный пользователем email в переменную $email, если он пустой, то уничтожаем переменную
 
 //если имя и пароль введены, то обрабатываем их, чтобы теги и скрипты не работали, мало ли что люди могут ввести
 $name = stripslashes($name);
@@ -29,8 +41,8 @@ if ($result->num_rows > 0) {
 }
 
 // Если такого пользователя нет то добавляем
-$sql = "INSERT INTO users (name,pass,email,group_id,avatar)
-		VALUES ('".$name."','".$pass."','".$email."',2,'./user_avatars/default.jpg')";	
+$sql = "INSERT INTO users (name, pass, email, avatar, block, group_id)
+		VALUES ('".$name."', '".$pass."', '".$email."', './user_avatars/default.jpg', 0, '".$group_id."')";	
 
 if($conn->query($sql) === TRUE){
 	echo "Вы успешно зарегистрированы! Теперь вы можете зайти на сайт. <a href='index.php'>Главная страница</a>";
@@ -41,3 +53,5 @@ if($conn->query($sql) === TRUE){
 $conn->close();
 
 ?>
+</body>
+</html>
